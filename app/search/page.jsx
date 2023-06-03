@@ -27,7 +27,11 @@ const Search = () => {
         <h1 className="text-3xl font-semibold text-center pt-8 px-8 text-[#023047]">
           Find Your Show
         </h1>
-        <div className="relative flex py-12 flex-row items-center justify-center gap-4">
+        <form onSubmit={(e) => {
+            e.preventDefault();
+            search(searchTerm);
+          }} 
+           className="relative flex py-12 flex-row items-center justify-center gap-4">
           <input
             onSubmit={() => search(searchTerm)}
             className="
@@ -42,7 +46,7 @@ const Search = () => {
             size={30}
             onClick={() => search(searchTerm)}
           />
-        </div>
+        </form>
         <div className="py-10 px-8 grid-cols-2 grid lg:grid-cols-5 md:grid-cols-4 sm:grid-cols-3 lg:gap-3">
           {searchResults?.length > 0 ? (
             searchResults.map((movie, id) => (
